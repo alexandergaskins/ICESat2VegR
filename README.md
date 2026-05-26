@@ -623,8 +623,13 @@ aoi_vect <- terra::vect(aoi)
 centroid <- terra::geom(terra::centroids(aoi_vect))
 
 # Extract the h_canopy attribute from the first ATL08 file
-atl08_seg_dt <- lapply(atl08_h5, ATL08_seg_attributes_dt, attributes = c("h_canopy"))
-atl08_seg_dt <- rbindlist2(atl08_seg_dt)
+atl08_seg_list <- list()
+for (f in atl08_files) {
+  h5 <- ATL08_read(f)
+  atl08_seg_list[[length(atl08_seg_list) + 1]] <- ATL08_seg_attributes_dt(h5, attributes = c("h_canopy"))
+  close(h5)
+}
+atl08_seg_dt <- rbindlist2(atl08_seg_list)
 atl08_seg_vect <- to_vect(atl08_seg_dt)
 
 # Clip using geometry
@@ -1081,9 +1086,13 @@ ee_initialize()
 ## Extract ATL08 segment-level h_canopy attribute
 
 ``` r
-atl08_seg_dt <- lapply(atl08_h5, ATL08_seg_attributes_dt, attribute = "h_canopy")
-
-atl08_seg_dt <- rbindlist2(atl08_seg_dt)
+atl08_seg_list <- list()
+for (f in atl08_files) {
+  h5 <- ATL08_read(f)
+  atl08_seg_list[[length(atl08_seg_list) + 1]] <- ATL08_seg_attributes_dt(h5, attributes = c("h_canopy"))
+  close(h5)
+}
+atl08_seg_dt <- rbindlist2(atl08_seg_list)
 
 # Remove h_canopy values that are above 100m
 atl08_seg_dt <- atl08_seg_dt[h_canopy < 100]
