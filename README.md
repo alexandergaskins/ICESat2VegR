@@ -305,13 +305,13 @@ This plot shows the elevation (m) of ATL03 photons along the satellite track. Ea
 
 ``` r
 # ATL03 seg attributes
-atl03_seg_att_ls <- lapply(
-  atl03_h5,
-  ATL03_seg_metadata_dt,
-  attributes = c("delta_time", "solar_elevation", "pitch", "h_ph", "ref_elev")
-)
+atl03_seg_att_ls <- list()
+for (f in atl03_files) {
+  h5 <- ATL03_read(f)
+  atl03_seg_att_ls[[length(atl03_seg_att_ls) + 1]] <- ATL03_seg_metadata_dt(h5, attributes = c("delta_time", "solar_elevation", "pitch", "h_ph", "ref_elev"))
+  close(h5)
+}
 atl03_seg_dt <- rbindlist2(atl03_seg_att_ls)
-
 # Remove segments above 20km
 atl03_seg_dt <- atl03_seg_dt[h_ph < 20000]
 
