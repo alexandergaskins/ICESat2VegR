@@ -677,9 +677,7 @@ Instead of manually choosing from the many _clipBox or _clipGeometry functions, 
 detects the class of the input object (x),
 determines whether the clipping object is a bounding box or a geometry,
 dispatches to the appropriate helper function internally.
-
-This allows simpler and cleaner code (note: `data_object` and `aoi` are placeholders — replace with your actual objects):
-```r
+``` 
 clipped <- clip(data_object, clip_obj = aoi)
 ```
 which internally routes the request to the correct clipping function — for example, ATL08_seg_attributes_dt_clipGeometry() or ATL03_h5_clipBox(), depending on the objects supplied.
