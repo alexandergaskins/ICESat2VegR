@@ -269,18 +269,20 @@ atl03_h5_cloud$beams
 ## gt1l gt1r gt2l gt2r gt3l gt3r
 ```
 
-``` r
 close(atl03_h5_cloud)
 ```
 
-# Extracting ATL03 photons attributes
-
+## Extracting ATL03 photons attributes
 ``` r
-atl03_photons_dt <- lapply(atl03_h5,ATL03_photons_attributes_dt)
-atl03_photons_dt <- rbindlist2(atl03_photons_dt)
-
+atl03_photons_list <- list()
+for (f in atl03_files) {
+  h5 <- ATL03_read(f)
+  atl03_photons_list[[length(atl03_photons_list) + 1]] <- ATL03_photons_attributes_dt(h5)
+  close(h5)
+}
+atl03_photons_dt <- rbindlist2(atl03_photons_list)
 head(atl03_photons_dt)
-``` 
+```
 | beam | strong_beam |    lon_ph |   lat_ph |      h_ph | solar_elevation | quality_ph | dist_ph_along |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | gt1r | FALSE | -83.17002 | 31.94998 |  38.03688 |        15.39839 |          0 |     0.3343540 |
