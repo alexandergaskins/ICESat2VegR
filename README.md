@@ -329,13 +329,12 @@ head(atl03_seg_dt)
 
 ``` r
 # ATL08 seg attributes
-atl08_seg_att_ls <- lapply(
-  atl08_h5,
-  ATL08_seg_attributes_dt,
-  attributes = c("h_canopy", "h_te_mean", "terrain_slope", "canopy_openness", "night_flag")
-)
-
-
+atl08_seg_att_ls <- list()
+for (f in atl08_files) {
+  h5 <- ATL08_read(f)
+  atl08_seg_att_ls[[length(atl08_seg_att_ls) + 1]] <- ATL08_seg_attributes_dt(h5, attributes = c("h_canopy", "h_te_mean", "terrain_slope", "canopy_openness", "night_flag"))
+  close(h5)
+}
 atl08_seg_dt <- rbindlist2(atl08_seg_att_ls)
 
 
