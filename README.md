@@ -694,7 +694,9 @@ This makes your workflow much simpler and more consistent, especially when switc
 Example 1: Using clip() on Extracted ATL08 Segment Attributes
 ```r
 # Extract ATL08 segment attributes
-atl08_seg <- ATL08_seg_attributes_dt(atl08_h5[[1]], attributes = "h_canopy")
+h5 <- ATL08_read(atl08_files[[1]])
+atl08_seg <- ATL08_seg_attributes_dt(h5, attributes = "h_canopy")
+close(h5)
 
 # Define area of interest
 aoi <- file.path(outdir, "example_aoi.gpkg")
