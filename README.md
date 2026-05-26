@@ -143,14 +143,14 @@ unzip(zip_file, exdir = outdir)
 
 ``` r
 # Specifying bounding box coordinates
-lower_left_lon <- -96.0
+lower_left_lon <- -96.5
 lower_left_lat <- 40.0
-upper_right_lon <- -100
+upper_right_lon <- -96.0
 upper_right_lat <- 42.0
 
 
 # Specifying the date range
-daterange <- c("2021-10-02", "2021-10-03")
+daterange <- c("2022-01-01", "2022-12-31")
 ```
 
 ## Working locally
