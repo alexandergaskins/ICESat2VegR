@@ -222,13 +222,13 @@ And then we can open and work with them
 ## ATL03
 # Read the granules
 atl03_files <- list.files(outdir, "ATL03.*h5", full.names = TRUE)
-atl03_h5 <- lapply(atl03_files, ATL03_read)
+atl03_h5 <- lapply(atl03_files, ATL03_read) # Note: do not pass this list to lapply for extraction, use a for loop instead
 
 
 ## ATL08
 # Read the granules
 atl08_files <- list.files(outdir, "ATL08.*h5", full.names = TRUE)
-atl08_h5 <- lapply(atl08_files, ATL08_read)
+atl08_h5 <- lapply(atl08_files, ATL08_read) # Note: do not pass this list to lapply for extraction, use a for loop instead
 
 # List groups within first file of atl08_h5
 atl08_h5[[1]]$ls()
