@@ -877,22 +877,17 @@ This function is used to compute segment IDs for ICESat-2 `ATL03` and
 # Herein as we are working with list of h5 files we will need
 # to loop over each file and extract the attributes and then
 # concatenate them with rbindlist2
-
-stopifnot(length(atl03_h5) == length(atl08_h5))
-
-atl03_atl08_dts <- lapply(
-  seq_along(atl03_h5),
-  function(ii) {
-    ATL03_ATL08_photons_attributes_dt_join(
-      atl03_h5[[ii]],
-      atl08_h5[[ii]]
-    )
-  }
-)
-
+stopifnot(length(atl03_files) == length(atl08_files))
+atl03_atl08_dts <- list()
+for (ii in seq_along(atl03_files)) {
+  atl03 <- ATL03_read(atl03_files[[ii]])
+  atl08 <- ATL08_read(atl08_files[[ii]])
+  atl03_atl08_dts[[ii]] <- ATL03_ATL08_photons_attributes_dt_join(atl03, atl08)
+  close(atl03)
+  close(atl08)
+}
 atl03_atl08_dt <- rbindlist2(atl03_atl08_dts)
 head(atl03_atl08_dt)
-
 ```
 
 ## Create Segments IDs
