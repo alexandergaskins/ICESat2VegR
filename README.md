@@ -556,15 +556,13 @@ aoi_vect <- terra::vect(aoi)
 
 # Define hdf5 output file
 output <- tempfile(pattern = "alt08_h5_clip_", fileext = ".h5")
-
 # Clip the data for only the first ATL08 file
-atl08_clipped <- ATL08_h5_clipBox(atl08_h5[[1]], output, clip_obj = clip_region)
-
-##atl08_clippeds <- ATL08_h5_clipGeometry(atl08_h5[[2]], output, clip_obj = aoi_vect, split_by="id")
-
-atl08_seg_dt <- ATL08_seg_attributes_dt(atl08_h5[[1]], attributes = c("h_canopy"))
+h5 <- ATL08_read(atl08_files[[1]])
+atl08_clipped <- ATL08_h5_clipBox(h5, output, clip_obj = clip_region)
+##atl08_clippeds <- ATL08_h5_clipGeometry(h5, output, clip_obj = aoi_vect, split_by="id")
+atl08_seg_dt <- ATL08_seg_attributes_dt(h5, attributes = c("h_canopy"))
 atl08_seg_dt_clip <- ATL08_seg_attributes_dt(atl08_clipped, attributes = c("h_canopy"))
-
+close(h5)
 # Display location of clipped data
 atl08_seg_vect <- to_vect(atl08_seg_dt)
 atl08_seg_clip_vect <- to_vect(atl08_seg_dt_clip)
