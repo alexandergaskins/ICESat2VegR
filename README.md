@@ -296,6 +296,11 @@ head(atl03_photons_dt)
 plot(atl03_photons_dt$dist_ph_along,atl03_photons_dt$h_ph, xlab="dist_ph_along", ylab="Elevation (m)", pch=16, cex=0.2)
 ``` 
 
+This plot shows the elevation (m) of ATL03 photons along the satellite track. Each point represents a single photon return. The spread of points reflects the range of surface and subsurface returns, including ground, vegetation, and noise photons.
+
+![ATL03 photons elevation plot](readme/atl03_photons_plot.png)
+
+
 # Segment-Level Extraction of ATL03 Metadata and ATL08 Attributes
 
 ``` r
