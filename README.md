@@ -176,13 +176,13 @@ atl03_granules_local <- ATLAS_dataFinder(
 head(atl03_granules_local)
 ```
 
-    ##      C2596864127-NSIDC_CPRD                                                                                                                      
-    ## [1,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/006/2021/10/02/ATL03_20211002001658_01461302_006_01.h5"
-    ## [2,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/006/2021/10/02/ATL03_20211002004127_01461306_006_01.h5"
-    ## [3,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/006/2021/10/02/ATL03_20211002015115_01471302_006_01.h5"
-    ## [4,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/006/2021/10/02/ATL03_20211002021545_01471306_006_01.h5"
-    ## [5,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/006/2021/10/02/ATL03_20211002032533_01481302_006_01.h5"
-    ## [6,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/006/2021/10/02/ATL03_20211002035002_01481306_006_01.h5"
+    ##      C3326974349-NSIDC_CPRD                                                                                                                      
+    ## [1,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/007/2022/01/07/ATL03_20220107013852_02411406_007_01.h5"
+    ## [2,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/007/2022/01/08/ATL03_20220108132303_02641402_007_01.h5"
+    ## [3,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/007/2022/02/05/ATL03_20220205001454_06831406_007_01.h5"
+    ## [4,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/007/2022/02/06/ATL03_20220206115904_07061402_007_01.h5"
+    ## [5,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/007/2022/03/09/ATL03_20220309224240_11861406_007_01.h5"
+    ## [6,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL03/007/2022/03/11/ATL03_20220311102649_12091402_007_01.h5"
 
 ``` r
 atl08_granules_local <- ATLAS_dataFinder(
@@ -200,13 +200,13 @@ atl08_granules_local <- ATLAS_dataFinder(
 head(atl08_granules_local)
 ```
 
-    ##      C2613553260-NSIDC_CPRD                                                                                                                     
-    ## [1,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/006/2021/10/02/ATL08_20211002004127_01461306_006_01.h5"
-    ## [2,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/006/2021/10/02/ATL08_20211002032533_01481302_006_01.h5"
-    ## [3,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/006/2021/10/02/ATL08_20211002045950_01491302_006_01.h5"
-    ## [4,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/006/2021/10/02/ATL08_20211002052420_01491306_006_01.h5"
-    ## [5,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/006/2021/10/02/ATL08_20211002063408_01501302_006_01.h5"
-    ## [6,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/006/2021/10/02/ATL08_20211002065837_01501306_006_01.h5"
+    ##      C3565574177-NSIDC_CPRD                                                                                                                     
+    ## [1,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/007/2022/01/07/ATL08_20220107013852_02411406_007_01.h5"
+    ## [2,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/007/2022/01/08/ATL08_20220108132303_02641402_007_01.h5"
+    ## [3,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/007/2022/02/05/ATL08_20220205001454_06831406_007_01.h5"
+    ## [4,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/007/2022/02/06/ATL08_20220206115904_07061402_007_01.h5"
+    ## [5,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/007/2022/03/09/ATL08_20220309224240_11861406_007_01.h5"
+    ## [6,] "https://data.nsidc.earthdatacloud.nasa.gov/nsidc-cumulus-prod-protected/ATLAS/ATL08/007/2022/03/11/ATL08_20220311102649_12091402_007_01.h5"
 
 Now we download the granules:
 
