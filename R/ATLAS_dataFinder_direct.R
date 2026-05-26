@@ -21,12 +21,17 @@ ATLAS_dataFinder_direct <- function(short_name,
   token <- get_earthdata_token()
   auth_header <- if (!is.null(token)) c(Authorization = paste("Bearer", token)) else c()
   bbox <- paste(lower_left_lon, lower_left_lat, upper_right_lon, upper_right_lat, sep = ",")
-  collection_search_url <- sprintf(
-    "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=%s&version=%s&cloud_hosted=%s",
-    short_name,
-    version,
-    cloud_hosted
-  )
+  collection_search_url <- if (cloud_hosted) {
+    sprintf(
+      "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=%s&version=%s&cloud_hosted=true",
+      short_name, version
+    )
+  } else {
+    sprintf(
+      "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=%s&version=%s",
+      short_name, version
+    )
+  }
   handle <- curl::new_handle(httpheader = auth_header)
   response <- curl::curl_fetch_memory(collection_search_url, handle = handle)
   collections_json <- response$content %>%
@@ -38,19 +43,12 @@ ATLAS_dataFinder_direct <- function(short_name,
     "pretty=false&page_size=%s&short_name=%s",
     "&bounding_box=%s&version=%s%%s"
   )
-  request_url <- sprintf(
-    url_format,
-    PAGE_SIZE,
-    short_name,
-    bbox,
-    version
-  )
+  request_url <- sprintf(url_format, PAGE_SIZE, short_name, bbox, version)
   temporal_filter <- ""
   if (!is.null(daterange)) {
     temporal_filter <- sprintf("&temporal=%s,%s", daterange[1], daterange[2])
   }
   request_url <- request_url %>% sprintf(temporal_filter)
-  granules_href <- c()
   granules_href <- sapply(collections_ids, function(x) fetchAllGranules(request_url, x, auth_header))
   return(granules_href)
 }
