@@ -757,19 +757,15 @@ Why Use `clip()`?
 # Herein as we are working with list of h5 files we will need
 # to loop over each file and extract the attributes and then
 # concatenate them with rbindlist2
-
-atl03_atl08_dts <- lapply(
-  seq_along(atl03_h5),
-  function(ii) {
-    ATL03_ATL08_photons_attributes_dt_join(
-      atl03_h5[[ii]],
-      atl08_h5[[ii]]
-    )
-  }
-)
-
+atl03_atl08_dts <- list()
+for (ii in seq_along(atl03_files)) {
+  atl03 <- ATL03_read(atl03_files[[ii]])
+  atl08 <- ATL08_read(atl08_files[[ii]])
+  atl03_atl08_dts[[ii]] <- ATL03_ATL08_photons_attributes_dt_join(atl03, atl08)
+  close(atl03)
+  close(atl08)
+}
 atl03_atl08_dt <- rbindlist2(atl03_atl08_dts)
-
 head(atl03_atl08_dt)
 ```
 
