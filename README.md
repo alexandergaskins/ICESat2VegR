@@ -158,6 +158,9 @@ daterange <- c("2021-10-02", "2021-10-03")
 First we need to find the granules:
 
 ``` r
+# Login to NASA Earthdata (required before searching for granules)
+earthdata_login()
+
 atl03_granules_local <- ATLAS_dataFinder(
   short_name = "ATL03",
   lower_left_lon,
