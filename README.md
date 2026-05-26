@@ -678,8 +678,7 @@ detects the class of the input object (x),
 determines whether the clipping object is a bounding box or a geometry,
 dispatches to the appropriate helper function internally.
 
-This allows simpler and cleaner code:
-
+This allows simpler and cleaner code (note: `data_object` and `aoi` are placeholders — replace with your actual objects):
 ```r
 clipped <- clip(data_object, clip_obj = aoi)
 ```
