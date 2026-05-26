@@ -77,7 +77,7 @@ ICESat2VegR_configure()
 This will install Miniconda if it is not already available, along with the necessary Python packages.
 
 ``` r
-Verify configuration status
+# Verify configuration status
 
 # Helper safely() runs an expression and returns a default value if an error occurs
 safely <- function(expr, default = NA) tryCatch(expr, error = function(e) default)
