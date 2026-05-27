@@ -712,6 +712,8 @@ atl08_seg_clip_vect <- to_vect(atl08_seg_clip)
 
 Example 2: Using `clip()` on Raw ATL03 HDF5 Data
 ```r
+# Define output file
+output <- tempfile(pattern = "atl03_clip_", fileext = ".h5")
 # ATL03 HDF5 object
 atl03 <- ATL03_read(atl03_files[[1]])
 # Define bounding box
