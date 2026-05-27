@@ -677,10 +677,11 @@ Instead of manually choosing from the many _clipBox or _clipGeometry functions, 
 detects the class of the input object (x),
 determines whether the clipping object is a bounding box or a geometry,
 dispatches to the appropriate helper function internally.
-``` 
-clipped <- ICESat2VegR::clip(data_object, clip_obj = aoi)
+```r
+# Example using ATL08 segment attributes and an area of interest
+aoi_vect <- terra::vect(file.path(outdir, "example_aoi.gpkg"))
+clipped <- ICESat2VegR::clip(atl08_seg_dt, clip_obj = aoi_vect)
 ```
-which internally routes the request to the correct clipping function — for example, ATL08_seg_attributes_dt_clipGeometry() or ATL03_h5_clipBox(), depending on the objects supplied.
 
 
 The clip() function automatically:
