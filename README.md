@@ -710,17 +710,15 @@ atl08_seg_clip <- ICESat2VegR::clip(atl08_seg, clip_obj = aoi_vect)
 atl08_seg_clip_vect <- to_vect(atl08_seg_clip)
 ```
 
-
-Example 2: Using clip() on Raw ATL03 HDF5 Data
+Example 2: Using `clip()` on Raw ATL03 HDF5 Data
 ```r
 # ATL03 HDF5 object
 atl03 <- ATL03_read(atl03_files[[1]])
-
 # Define bounding box
-bbox <- ext(c(-83.2, -83.14, 32.12, 32.18))
-
+bbox <- terra::ext(c(-83.2, -83.14, 32.12, 32.18))
 # Clip using generic clip()
 atl03_clipped <- ICESat2VegR::clip(atl03, output, clip_obj = bbox)
+close(atl03)
 ```
 
 
