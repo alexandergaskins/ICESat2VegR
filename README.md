@@ -678,7 +678,7 @@ detects the class of the input object (x),
 determines whether the clipping object is a bounding box or a geometry,
 dispatches to the appropriate helper function internally.
 ``` 
-clipped <- clip(data_object, clip_obj = aoi)
+clipped <- ICESat2VegR::clip(data_object, clip_obj = aoi)
 ```
 which internally routes the request to the correct clipping function — for example, ATL08_seg_attributes_dt_clipGeometry() or ATL03_h5_clipBox(), depending on the objects supplied.
 
@@ -703,7 +703,7 @@ aoi <- file.path(outdir, "example_aoi.gpkg")
 aoi_vect <- terra::vect(aoi)
 
 # Clip using the generic function
-atl08_seg_clip <- clip(atl08_seg, clip_obj = aoi_vect)
+atl08_seg_clip <- ICESat2VegR::clip(atl08_seg, clip_obj = aoi_vect)
 
 # Convert to vector for visualization
 atl08_seg_clip_vect <- to_vect(atl08_seg_clip)
@@ -719,7 +719,7 @@ atl03 <- ATL03_read(atl03_files[[1]])
 bbox <- ext(c(-83.2, -83.14, 32.12, 32.18))
 
 # Clip using generic clip()
-atl03_clipped <- clip(atl03, output, clip_obj = bbox)
+atl03_clipped <- ICESat2VegR::clip(atl03, output, clip_obj = bbox)
 ```
 
 
