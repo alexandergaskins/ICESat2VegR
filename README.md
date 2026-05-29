@@ -757,6 +757,10 @@ Why Use `clip()`?
 
 ``` r
 
+# Note: this section uses the example dataset clip files
+# Make sure to use the clip files for this section
+atl03_files <- list.files(outdir, "ATL03.*_clip.h5", full.names = TRUE)
+atl08_files <- list.files(outdir, "ATL08.*_clip.h5", full.names = TRUE)
 # Herein as we are working with list of h5 files we will need
 # to loop over each file and extract the attributes and then
 # concatenate them with rbindlist2
@@ -796,7 +800,7 @@ plot(
   atl03_atl08_dt[orbit_number == 3208],
   y = "h_ph",
   colors = c("gray", "#bd8421", "forestgreen", "green"),
-  xlim = c(25500, 28500),
+  xlim = c(21500, 24000),
   beam = "gt2r",
   cex = 0.5,
   pch = 16
@@ -808,7 +812,7 @@ plot(
   atl03_atl08_dt[orbit_number == 3208],
   y = "ph_h",
   colors = c("gray", "#bd8421", "forestgreen", "green"),
-  xlim = c(25500, 28500),
+  xlim = c(21500, 24000),
   beam = "gt2r",
   cex = 0.5,
   pch = 16,
@@ -819,6 +823,11 @@ par(
   oldpar
 )
 ```
+
+Classified ATL03 photons using ATL08 labels. Top panel shows elevation (m), bottom panel shows normalized height (m) relative to ground.
+
+![Classified ATL03 photons using ATL08 labels](readme/atl03_atl08_classified_photons.png)
+
 
 <div align="center">
 
